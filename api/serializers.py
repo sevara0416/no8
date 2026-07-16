@@ -1,8 +1,8 @@
 from rest_framework.serializers import ModelSerializer
-from .models import Product
+from .models import Library
 
-class ProductSerializer(ModelSerializer):
+class LibrarySerializers(ModelSerializer):
     class Meta:
-        model =Product
-        fields=["id","name","price","descriptions","created_at"]
+        model =Library
+        fields=["id","name","price","pages","author","created_at"]
         read_only_fields= ["id", "created_at"]
