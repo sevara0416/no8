@@ -1,11 +1,12 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
-from .views import LibraryModelViewSet
+from django.urls import path
+# from rest_framework.routers import DefaultRouter
+from .views import LibraryListView,library_create,library_detail,library_update,library_delete
 
-router = DefaultRouter()
-
-router.register("library",LibraryModelViewSet)
 
 urlpatterns=[
-    path("", include(router.urls)),
+    path("librarys/", LibraryListView),
+    path("librarys/create/", library_create),
+    path("librarys/<int:pk>", library_detail),
+    path("librarys/update/<int:pk>", library_update),
+    path("librarys/delete/<int:pk>", library_delete),
 ]
